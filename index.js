@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /* Copyright 2013 - 2022 Waiterio LLC */
 
-import path from 'path'
-import program from 'commander'
-import git from 'simple-git'
+import { program } from 'commander'
+import create from './create.js'
+import download from './download.js'
 
-program.description('create a blog').version('0.0.1').parse(process.argv)
+program.name('polyblog').description('create a blog').version('0.0.1')
 
-async function main() {
-  console.log('create-polyblog')
-  const repoUrl = 'https://github.com/polyblog-io/nextjs-blog-example.git'
-  const repoPath = path.resolve(__dirname, './repo')
-  await git().clone(repoUrl, repoPath, ['--depth', '1'])
-}
+program.command('create').action(create)
+program
+  .command('download')
+  .option('-b, --blog <blogId>', 'blogId from polyblog.io')
+  .argument('[directory]', 'directory to download to the blog')
+  .action(download)
 
-main()
+program.parse(process.argv)
