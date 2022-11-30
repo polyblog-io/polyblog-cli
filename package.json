@@ -1,0 +1,33 @@
+{
+  "name": "@polyblog/cli",
+  "version": "0.0.0",
+  "description": "create a blog from the terminal",
+  "main": "index.js",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "develop": "node index.js",
+    "install-global": "npm install -g .",
+    "list-global": "npm list -g"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waiter-io/waiterio.git"
+  },
+  "author": "Waiterio LLC <info@waiterio.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/waiter-io/waiterio/issues"
+  },
+  "homepage": "https://github.com/waiter-io/waiterio",
+  "bin": {
+    "create-blog": "./index.js",
+    "create-polyblog": "./index.js",
+    "polyblog": "./index.js"
+  },
+  "dependencies": {
+    "commander": "9.4.0",
+    "simple-git": "^3.10.0"
+  }
+}
