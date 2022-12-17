@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@polyblog/polyblog-js-client": "^0.0.16",
-    "commander": "9.4.1",
+    "commander": "8.3.0",
     "simple-git": "^3.10.0"
   }
 }
