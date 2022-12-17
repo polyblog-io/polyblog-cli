@@ -2,14 +2,14 @@
 import path from 'path'
 import fs from 'fs'
 import { promisify } from 'util'
-import commander from 'commander'
+import { Command } from 'commander'
 import polyblog from '@polyblog/polyblog-js-client'
 
 const { getArticles } = polyblog
 
 function downloadCommand() {
   
-  const command = new commander.Command('download')
+  const command = new Command('download')
   command.option('-b, --blog <blogId>', 'blogId from polyblog.io')
   command.argument('[directory]', 'directory to download to the blog')
 

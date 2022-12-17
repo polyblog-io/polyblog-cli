@@ -1,11 +1,11 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
 import path from 'path'
 import git from 'simple-git'
-import commander from 'commander'
+import { Command } from 'commander'
 
 function createCommand() {
   
-  const command = new commander.Command('create')
+  const command = new Command('create')
   command.action(async (options) => {
     console.log('create-polyblog')
     const repoUrl = 'https://github.com/polyblog-io/nextjs-blog-example.git'
