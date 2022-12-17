@@ -4,9 +4,8 @@ import git from 'simple-git'
 import { Command } from 'commander'
 
 function createCommand() {
-  
   const command = new Command('create')
-  command.action(async (options) => {
+  command.action(async options => {
     console.log('create-polyblog')
     const repoUrl = 'https://github.com/polyblog-io/nextjs-blog-example.git'
     const repoPath = path.resolve(__dirname, './repo')
@@ -14,7 +13,6 @@ function createCommand() {
   })
 
   return command
-  
 }
 
 export default createCommand

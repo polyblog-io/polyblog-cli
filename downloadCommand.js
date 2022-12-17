@@ -8,13 +8,11 @@ import polyblog from '@polyblog/polyblog-js-client'
 const { getArticles } = polyblog
 
 function downloadCommand() {
-  
   const command = new Command('download')
   command.option('-b, --blog <blogId>', 'blogId from polyblog.io')
   command.argument('[directory]', 'directory to download to the blog')
 
   command.action(async (directory, options) => {
-
     directory = directory || '.'
     const blogId = options.blog
     let articles = await getArticles({ blogId })
@@ -61,11 +59,9 @@ function downloadCommand() {
         content
       await promisify(fs.writeFile)(filepath, markdown)
     }
-
   })
 
   return command
-
 }
 
 export default downloadCommand
