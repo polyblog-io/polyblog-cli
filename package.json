@@ -27,8 +27,12 @@
     "polyblog": "./index.js"
   },
   "dependencies": {
-    "@polyblog/polyblog-js-client": "^0.0.16",
+    "@polyblog/polyblog-js-client": "../polyblog-js-client",
     "commander": "9.4.1",
+    "fs-extra": "10.1.0",
+    "gray-matter": "^4.0.3",
+    "inquirer": "9.1.4",
+    "node-localstorage": "^2.2.1",
     "simple-git": "3.15.1"
   },
   "devDependencies": {

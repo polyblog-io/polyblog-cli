@@ -5,8 +5,10 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
     node: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
   },
   extends: ['airbnb'],
   plugins: ['import'],
@@ -18,6 +20,13 @@ module.exports = {
     },
   },
   rules: {
+    semi: ['error', 'never'],
     'import/extensions': ['error', 'always'],
+    'no-console': 'off',
+    'prefer-const': 'off',
+    'arrow-parens': ['error', 'as-needed'],
+    'no-await-in-loop': 'off',
+    'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
   },
-},
+}
