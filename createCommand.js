@@ -1,7 +1,7 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import path from 'path'
-import git from 'simple-git'
-import { Command } from 'commander'
+const path = require('path')
+const git = require('simple-git')
+const { Command } = require('commander')
 
 function createCommand() {
   const command = new Command('create')
@@ -15,4 +15,4 @@ function createCommand() {
   return command
 }
 
-export default createCommand
+module.exports = createCommand

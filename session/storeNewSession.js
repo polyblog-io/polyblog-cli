@@ -1,13 +1,15 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import {
+const {
   setAccessTokenForPolyblogClient,
   setAccessTokenCallbackForPolyblogClient,
-} from '@polyblog/polyblog-js-client/accessToken.js'
-import { setRefreshTokenForPolyblogClient } from '@polyblog/polyblog-js-client/refreshToken.js'
-import setAccessToken from './setAccessToken.js'
-import setRefreshToken from './setRefreshToken.js'
+} = require('@polyblog/polyblog-js-client/accessToken.js')
+const {
+  setRefreshTokenForPolyblogClient,
+} = require('@polyblog/polyblog-js-client/refreshToken.js')
+const setAccessToken = require('./setAccessToken.js')
+const setRefreshToken = require('./setRefreshToken.js')
 
-export default async function storeNewSession({ accessToken, refreshToken }) {
+module.exports = async function storeNewSession({ accessToken, refreshToken }) {
   try {
     setAccessToken(accessToken)
     setRefreshToken(refreshToken)

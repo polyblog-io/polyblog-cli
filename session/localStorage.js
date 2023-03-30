@@ -1,7 +1,7 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import os from 'os'
-import path from 'path'
-import { LocalStorage } from 'node-localstorage'
+const os = require('os')
+const path = require('path')
+const { LocalStorage } = require('node-localstorage')
 
 let localStorage
 
@@ -10,4 +10,4 @@ if (!localStorage) {
   localStorage = new LocalStorage(path.resolve(homeDir, '.polyblog'))
 }
 
-export default localStorage
+module.exports = localStorage

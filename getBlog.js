@@ -1,11 +1,11 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import inquirer from 'inquirer'
-import getBlogHttp from '@polyblog/polyblog-js-client/getBlog.js'
-import getBlogs from '@polyblog/polyblog-js-client/getBlogs.js'
-import getConfig from './getConfig.js'
-import setConfig from './setConfig.js'
+const inquirer = require('inquirer')
+const getBlogHttp = require('@polyblog/polyblog-js-client/getBlog.js')
+const getBlogs = require('@polyblog/polyblog-js-client/getBlogs.js')
+const getConfig = require('./getConfig.js')
+const setConfig = require('./setConfig.js')
 
-export default async function getBlog(blogIdOrName) {
+module.exports = async function getBlog(blogIdOrName) {
   let blog
 
   let config = getConfig()

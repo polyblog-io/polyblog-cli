@@ -1,9 +1,10 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import fs from 'fs-extra'
-import path from 'path'
+const fs = require('fs-extra')
+const path = require('path')
 
 function getFilesRecursive(dir) {
-  const subdirs = fs.readdirSync(dir)
+  let subdirs = fs.readdirSync(dir)
+  subdirs = subdirs.filter(file => !file.startsWith('node_modules'))
   const files = subdirs.map(subdir => {
     const resource = path.resolve(dir, subdir)
     return fs.statSync(resource).isDirectory()
@@ -13,7 +14,7 @@ function getFilesRecursive(dir) {
   return files.reduce((a, f) => a.concat(f), [])
 }
 
-export default function getFiles(dir) {
+module.exports = function getFiles(dir) {
   dir = dir || '.'
   let files = getFilesRecursive(dir)
 

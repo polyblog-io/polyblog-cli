@@ -1,8 +1,8 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import fs from 'fs-extra'
-import getConfigPath from './getConfigPath.js'
+const fs = require('fs-extra')
+const getConfigPath = require('./getConfigPath.js')
 
-export default function getConfig() {
+module.exports = function getConfig() {
   let config
   let configPath = getConfigPath()
 

@@ -1,8 +1,10 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import { isRefreshTokenExpired } from '@polyblog/polyblog-js-client/refreshToken.js'
-import clearSession from './clearSession.js'
+const {
+  isRefreshTokenExpired,
+} = require('@polyblog/polyblog-js-client/refreshToken.js')
+const clearSession = require('./clearSession.js')
 
-export default function isLoggedInSession() {
+module.exports = function isLoggedInSession() {
   let isLoggedIn = false
 
   if (!isRefreshTokenExpired()) {

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /* Copyright 2013 - 2022 Waiterio LLC */
 
-import { program } from 'commander'
-import createCommand from './createCommand.js'
-import downloadCommand from './downloadCommand.js'
-import importCommand from './importCommand.js'
-import loginCommand from './loginCommand.js'
-import logoutCommand from './logoutCommand.js'
+const { program } = require('commander')
+const createCommand = require('./createCommand.js')
+const downloadCommand = require('./downloadCommand.js')
+const importCommand = require('./importCommand.js')
+const loginCommand = require('./loginCommand.js')
+const logoutCommand = require('./logoutCommand.js')
 
 program
   .description('create a blog')

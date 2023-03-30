@@ -1,8 +1,8 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import fs from 'fs-extra'
-import path from 'path'
+const fs = require('fs-extra')
+const path = require('path')
 
-export default function setConfig(config) {
+module.exports = function setConfig(config) {
   let configPath = path.resolve('.', 'polyblog.json')
 
   let string = ''

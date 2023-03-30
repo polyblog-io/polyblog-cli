@@ -1,6 +1,6 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import localStorage from './localStorage.js'
+const localStorage = require('./localStorage.js')
 
-export default function getAccessToken() {
+module.exports = function getAccessToken() {
   return localStorage.getItem('accessToken')
 }

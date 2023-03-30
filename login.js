@@ -1,9 +1,9 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import inquirer from 'inquirer'
-import postLogin from '@polyblog/polyblog-js-client/login.js'
-import storeNewSession from './session/storeNewSession.js'
+const inquirer = require('inquirer')
+const postLogin = require('@polyblog/polyblog-js-client/login.js')
+const storeNewSession = require('./session/storeNewSession.js')
 
-export default async function login(email, password) {
+module.exports = async function login(email, password) {
   let answers = await inquirer.prompt([
     {
       name: 'email',

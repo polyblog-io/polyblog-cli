@@ -1,6 +1,6 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import { Command } from 'commander'
-import login from './login.js'
+const { Command } = require('commander')
+const login = require('./login.js')
 
 function loginCommand() {
   const command = new Command('login')
@@ -21,4 +21,4 @@ function loginCommand() {
   return command
 }
 
-export default loginCommand
+module.exports = loginCommand

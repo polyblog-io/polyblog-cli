@@ -1,6 +1,6 @@
 /* Copyright 2013 - 2022 Waiterio LLC */
-import { Command } from 'commander'
-import clearSession from './session/clearSession.js'
+const { Command } = require('commander')
+const clearSession = require('./session/clearSession.js')
 
 function logoutCommand() {
   const command = new Command('logout')
@@ -19,4 +19,4 @@ function logoutCommand() {
   return command
 }
 
-export default logoutCommand
+module.exports = logoutCommand

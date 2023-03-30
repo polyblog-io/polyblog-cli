@@ -1,14 +1,14 @@
-import fs from 'fs'
-import path from 'path'
-import { Command } from 'commander'
-import matter from 'gray-matter'
-import uuid from '@polyblog/polyblog-js-client/uuid.js'
-import addOrUpdateArticle from '@polyblog/polyblog-js-client/addOrUpdateArticle.js'
-import rehydrateSession from './session/rehydrateSession.js'
-import isLoggedInSession from './session/isLoggedInSession.js'
-import getBlog from './getBlog.js'
-import getFiles from './getFiles.js'
-import login from './login.js'
+const fs = require('fs')
+const path = require('path')
+const { Command } = require('commander')
+const matter = require('gray-matter')
+const uuid = require('@polyblog/polyblog-js-client/uuid.js')
+const addOrUpdateArticle = require('@polyblog/polyblog-js-client/addOrUpdateArticle.js')
+const rehydrateSession = require('./session/rehydrateSession.js')
+const isLoggedInSession = require('./session/isLoggedInSession.js')
+const getBlog = require('./getBlog.js')
+const getFiles = require('./getFiles.js')
+const login = require('./login.js')
 
 function importCommand() {
   const command = new Command('import')
@@ -76,13 +76,24 @@ function importCommand() {
 
               console.log({ ...json, content: '...' })
 
+              let match = new RegExp(suffix).exec(file)
+              let { YYYY, MM, DD } = match?.groups || {}
+
               const _id = uuid()
 
-              let subtitle = json.description
+              let description = json.description
 
-              if (!subtitle) {
-                subtitle = json.excerpt
+              if (!description) {
+                description = json.excerpt
                 delete json.excerpt
+              }
+
+              if (!json.date) {
+                json.date = `${YYYY}-${MM}-${DD} 00:00:00`
+              }
+
+              if (json.date?.length === 19) {
+                json.date += '.000Z'
               }
 
               const creationTime = json.date
@@ -92,10 +103,8 @@ function importCommand() {
               let { published, slug } = json
               delete json.published
 
-              if (!slug) {
-                let match = new RegExp(suffix).exec(file)
-                slug = match.groups.slug
-              }
+              slug = slug || match?.groups?.slug
+              slug = `${YYYY}/${MM}/${slug}`
 
               if (!slug) {
                 throw new Error(`Could not find slug for file ${file}`)
@@ -112,7 +121,7 @@ function importCommand() {
                 googleTranslate: false,
                 locale: defaultLocale,
                 title: json.title,
-                subtitle: json.description || json.ex,
+                description,
                 slug,
                 content: json.content,
                 author: json.author,
@@ -167,4 +176,4 @@ function importCommand() {
   return command
 }
 
-export default importCommand
+module.exports = importCommand
