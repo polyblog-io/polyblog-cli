@@ -1,7 +1,7 @@
 {
-  "name": "@polyblog/cli",
-  "version": "0.0.0",
-  "description": "create a blog from the terminal",
+  "name": "polyblog",
+  "version": "0.0.1",
+  "description": "polyblog.io CLI to create and manage a blog from the terminal",
   "main": "index.js",
   "private": false,
   "type": "commonjs",
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/waiter-io/waiterio/issues"
   },
-  "homepage": "https://github.com/waiter-io/waiterio",
+  "homepage": "https://www.polyblog.io/",
   "bin": {
     "create-blog": "./index.js",
     "create-polyblog": "./index.js",
